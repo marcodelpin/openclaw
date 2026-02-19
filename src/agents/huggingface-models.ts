@@ -199,7 +199,7 @@ export async function discoverHuggingfaceModels(apiKey: string): Promise<ModelDe
         const inferred = inferredMetaFromModelId(id);
         const name = displayNameFromApiEntry(entry, inferred.name);
         const modalities = entry.architecture?.input_modalities;
-        const input: Array<"text" | "image"> =
+        const input: Array<"text" | "image" | "video" | "audio"> =
           Array.isArray(modalities) && modalities.includes("image") ? ["text", "image"] : ["text"];
         const providers = Array.isArray(entry.providers) ? entry.providers : [];
         const providerWithContext = providers.find(
